@@ -1,6 +1,16 @@
 - name: test-connect
-  hosts: redis
-  gather_facts: false
-  tasks:
-    - name: test
-      command: uname -a
+  hosts: all
+  gather_facts: yes
+  become_user: root
+  become: yes 
+  vars:    
+    ansible_connection: "ssh"
+    ansible_port: 22
+    ansible_user: "demo"
+    ansible_ssh_extra_args: '-o StrictHostKeyChecking=no'
+  tasks:    
+    # - debug: msg=test
+    - name: Create
+      command:  pwd
+    - name: Install gcc
+      command: yum -y install gcc
