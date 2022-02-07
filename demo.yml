@@ -7,6 +7,8 @@
     ansible_connection: "ssh"
     ansible_port: 22
     ansible_user: "demo"
+    ansible_ssh_pass: "AaBb54321@@"
+    ansible_sudo_pass: "AaBb54321@@"
     ansible_ssh_extra_args: '-o StrictHostKeyChecking=no'
   tasks:    
     # - debug: msg=test
